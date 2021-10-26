@@ -1,3 +1,9 @@
+"""
+matrix中找最大值及最小值
+https://blog.csdn.net/qq_18293213/article/details/70175920
+"""
+
+
 #方法一，利用關鍵字
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
@@ -33,6 +39,21 @@ X = np.arange(0, 0, 10)
 print("X : {}".format(X))
 
 matrix1 = [[1, 1, 1], [1, 1, 1], [1, 1, 1]]
-print("matrix1.sum() : ".format(matrix1.sum()))
+matrix1_np = np.array(matrix1)
+print("matrix1_np.sum() : {}".format(matrix1_np.sum()))
 
+list_random = [[8, 2, 5], [8, 6, 2], [5, 21, 0]]
+matrix = np.array(list_random)
+print("matrix : {}".format(matrix))
+# print("np.min(matrix) : {}". format(np.min(matrix)))
+# print("np.max(matrix) : {}". format(np.max(matrix)))
 
+list_random2 = [[5, 8, 9], [4, 5, 3], [1, 3, 5]]
+matrix_2 = np.array(list_random2)
+print("matrix_2 : {}".format(matrix_2))
+
+matrix_3 = matrix - matrix_2
+print("matrix_3 : {}".format(matrix_3))
+
+matrix_3 = matrix / matrix_2
+print("matrix_3 : {}".format(matrix_3))
