@@ -3,6 +3,11 @@
 https://blog.csdn.net/qq_26948675/article/details/54318917
 https://vimsky.com/zh-tw/examples/usage/python-numpy.ones.html
 
+
+plt.imshow()的camp值
+https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html
+https://www.cnblogs.com/denny402/p/5122594.html
+
 """
 
 import numpy as np
@@ -55,9 +60,18 @@ def convolve2D(image, kernel, padding=0, strides=1):
     return output
 #2D convolution
 
-def show_img_gray(img, title_img):
+def show_img(img, title_img, cmap_appinted = None):
+    """
+    'gray' : 灰階圖
+    'Reds' : 紅色
+    'Greens' : 綠色
+    'Blues' : 藍色
+    'viridis' : 彩色圖，"cmap"的預設值
+    """
+    # print("cmap_appinted : {}".format(cmap_appinted))
+  
     plt.figure()
-    plt.imshow(img, cmap = 'gray', vmin = 0, vmax = 255)
+    plt.imshow(img, cmap = cmap_appinted, vmin = 0, vmax = 255)
     plt.title(title_img)
 
 

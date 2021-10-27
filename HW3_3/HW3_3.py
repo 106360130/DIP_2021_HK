@@ -43,7 +43,8 @@ from HW3_3_function import kernel_Guassian
 
 #以gray的方式讀進圖片
 # img = cv2.imread('checkerboard1024-shaded.tif', cv2.IMREAD_GRAYSCALE)
-img = cv2.imread('N1.bmp', cv2.IMREAD_GRAYSCALE)
+# img = cv2.imread('N1.bmp', cv2.IMREAD_GRAYSCALE)
+img = plt.imread("checkerboard1024-shaded.tif")
 #print("img : {}".format(img))
 img2 = cv2.imread('N1.bmp', cv2.IMREAD_GRAYSCALE)
 #print("img2.shape : {}".format(img2.shape))
