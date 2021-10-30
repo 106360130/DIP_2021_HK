@@ -13,6 +13,7 @@ https://www.cnblogs.com/denny402/p/5122594.html
 import numpy as np
 import matplotlib.pyplot as plt
 import math
+import cv2
 
 
 #2D convolution
@@ -111,3 +112,40 @@ def kernel_Guassian(K, sigma, m):
 
     return kernel_G
 #製造Guassian kernel
+
+#Sobel kernel所找到的邊緣
+def filter_Sobel(img):
+    kernel_S_x = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])  #g_x
+    kernel_S_y = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])  #g_y
+
+    img_S_x = convolve2D(img, kernel_S_x, padding=0, strides=1)
+    img_S_y = convolve2D(img, kernel_S_y, padding=0, strides=1)
+
+    img_M_xy = ((img_S_x ** 2) + (img_S_y ** 2)) ** 0.5
+    img_M_xy_r = cv2.resize(img_M_xy, (img.shape[1], img.shape[0]))
+
+    return img_M_xy_r
+#Sobel kernel所找到的邊緣
+
+#Laplacian kernel所找到的邊緣
+def filter_Laplacian(img):
+    kernel_L = np.array([[0, 1, 0], [1, -4, 1], [0, 1, 0]])
+    img_L = convolve2D(img, kernel_L, padding=0, strides=1)
+    img_L_r = cv2.resize(img_L, (img.shape[1], img.shape[0]))
+    return img_L_r
+
+#Laplacian kernel所找到的邊緣
+
+#最大值不能大於255 且 最小值不能小於255
+def normalize_255(img) :
+    for i in range(img.shape[0]):
+        for j in range(img.shape[1]):
+            if(img[i][j] > 255):
+                img[i][j] = 255
+            
+            if(img[i][j] < 0):
+                img[i][j] = 0
+
+    return img      
+#最大值不能大於255 且 最小值不能小於255
+

@@ -11,9 +11,9 @@ from HW3_3_function import kernel_Guassian
 
 #測試的圖 : 'checkerboard1024-shaded.tif' 和 'N1.bmp'
 img = plt.imread("N1.bmp")  #會看有多少通道而讀進多少
-plt.figure()
-plt.imshow(img)
-plt.title("ORIGIN")
+# plt.figure()
+# plt.imshow(img)
+# plt.title("ORIGIN")
 
 
 #製造Guassian kernel
@@ -22,7 +22,7 @@ sigma = 64  #1024/16(圖中的小框框size)
 m = 257  #64*4(圖中的小框框size的4倍)
 kernel_G = kernel_Guassian(K, sigma, m)
 print("kernel_G : {}".format(kernel_G))
-show_img_gray(kernel_G, "kernel_G")
+# show_img_gray(kernel_G, "kernel_G")
 #製造Guassian kernel
 
 
@@ -69,6 +69,19 @@ if(len(size_img) == 3) :
     b_c_2 = b_c_2/np.max(b_c_2)
     g_c_2 = g_c_2/np.max(g_c_2)
     r_c_2 = r_c_2/np.max(r_c_2)
+ 
+
+
+
+    # print("np.max(b_c_2) : {}".format(np.max(b_c_2))) 
+    # print("np.max(g_c_2) : {}".format(np.max(g_c_2))) 
+    # print("np.max(r_c_2) : {}".format(np.max(r_c_2))) 
+    # print("np.min(b_c_2) : {}".format(np.min(b_c_2))) 
+    # print("np.min(g_c_2) : {}".format(np.min(g_c_2))) 
+    # print("np.min(r_c_2) : {}".format(np.min(r_c_2))) 
+
+    
+
 
     #"bgr"合併要用"int"型態
     b_final = np.around(b/b_c_2)
@@ -97,9 +110,28 @@ img_final = img_final.astype('uint8')
 print("img_final.shape : {}".format(img_final.shape))
 print("img_final : {}".format(img_final))
 
+C = 150  #陰暗更明顯地顯示
+b_c_2 = b_c_2*C
+g_c_2 = g_c_2*C
+r_c_2 = r_c_2*C
+
+img_c = cv2.merge([b_c_2, g_c_2, r_c_2])  #將bgr合併
+img_c = img_c.astype('uint8') 
+
 plt.figure()
+plt.subplot(1, 3, 1)
+plt.imshow(img)
+plt.title("ORIGIN")
+
+plt.subplot(1, 3, 2)
+plt.imshow(img_c)
+plt.title("Lowpass filter")
+
+plt.subplot(1, 3, 3)
 plt.imshow(img_final)
 plt.title("FINAL")
+
+
 
 
 plt.show()  # 顯示圖形

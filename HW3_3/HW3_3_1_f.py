@@ -11,7 +11,7 @@ from HW3_3_function import kernel_Guassian
 
 #測試的圖 : 'checkerboard1024-shaded.tif' 和 'N1.bmp'
 img = plt.imread("checkerboard1024-shaded.tif")  #會看有多少通道而讀進多少
-show_img_gray(img, "ORIGIN")
+# show_img_gray(img, "ORIGIN")
 
 
 #製造Guassian kernel
@@ -20,7 +20,7 @@ sigma = 64  #1024/16(圖中的小框框size)
 m = 257  #64*4(圖中的小框框size的4倍)
 kernel_G = kernel_Guassian(K, sigma, m)
 print("kernel_G : {}".format(kernel_G))
-show_img_gray(kernel_G, "kernel_G")
+# show_img_gray(kernel_G, "kernel_G")
 #製造Guassian kernel
 
 
@@ -31,12 +31,12 @@ print("size_img[0] : {}, size_img[1] : {}".format(size_img[0], size_img[1]))
 
 #"img"做完convolution
 img_c = convolve2D(img, kernel_G, padding=0, strides=1)
-show_img_gray(img_c, "img_convolution")
+# show_img_gray(img_c, "img_convolution")
 #"img"做完convolution
 
 #將"img_c"放大
 img_c_2 = cv2.resize(img_c, (size_img[1], size_img[0]))
-show_img_gray(img_c_2, "img_convolution_resize")
+# show_img_gray(img_c_2, "img_convolution_resize")
 print("img_c_2 : {}".format(img_c_2))
 print("np.max(img_c_2) : {}".format(np.max(img_c_2)))
 print("np.min(img_c_2) : {}".format(np.min(img_c_2)))
@@ -63,6 +63,19 @@ show_img_gray(img_final, "img_final")
 img_c_2 = img_c_2/np.max(img_c_2)
 img_final = img/img_c_2
 show_img_gray(img_final, "img_final")
+
+plt.figure()
+plt.subplot(1, 3, 1)
+plt.imshow(img, "gray")
+plt.title("ORIGIN")
+
+plt.subplot(1, 3, 2)
+plt.imshow(img_c_2, "gray")
+plt.title("Lowpass filter")
+
+plt.subplot(1, 3, 3)
+plt.imshow(img_final, "gray")
+plt.title("FINAL")
 
 plt.show()  # 顯示圖形
 
