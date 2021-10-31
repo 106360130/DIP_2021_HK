@@ -12,7 +12,7 @@ import math
 
 #測試的圖 : 'Bodybone.bmp' 和 'fish.jpg'
 #讀取圖片
-img = plt.imread("Bodybone.bmp")
+img = plt.imread("fish.jpg")
 
 # show_img(img, "ORIGIN")
 img_shape = img.shape
@@ -53,22 +53,25 @@ plt.imshow(img_f_S);plt.title("Sobel filter")
 
 
 #Laplacian filter
-
 b_L = filter_Laplacian(b)
 g_L = filter_Laplacian(g)
 r_L = filter_Laplacian(r)
 
-c = -4.5  #常數
+
+#Bodybone.bmp : c = 4.5
+#fish.jpg : c = -10
+c = -10  #常數
 b_f_L = b + (c*b_L)
-g_f_L = b + (c*g_L)
-r_f_L = b + (c*r_L)
+g_f_L = g + (c*g_L)
+r_f_L = r + (c*r_L)
 b_f_L = normalize_255(b_f_L)
 g_f_L = normalize_255(g_f_L)
 r_f_L = normalize_255(r_f_L)
+print("np.max(g_f_L) : {}".format(np.max(g_f_L)))
+print("np.min(g_f_L) : {}".format(np.min(g_f_L)))
 
 img_f_L = np.dstack([b_f_L, g_f_L, r_f_L])
 img_f_L = img_f_L.astype('uint8')  
-
 
 plt.figure()
 plt.subplot(1, 2, 1)

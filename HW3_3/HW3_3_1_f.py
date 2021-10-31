@@ -66,16 +66,13 @@ show_img_gray(img_final, "img_final")
 
 plt.figure()
 plt.subplot(1, 3, 1)
-plt.imshow(img, "gray")
-plt.title("ORIGIN")
+plt.imshow(img, "gray");plt.title("ORIGIN")
 
 plt.subplot(1, 3, 2)
-plt.imshow(img_c_2, "gray")
-plt.title("Lowpass filter")
+plt.imshow(img_c_2, "gray");plt.title("Lowpass filter")
 
 plt.subplot(1, 3, 3)
-plt.imshow(img_final, "gray")
-plt.title("FINAL")
+plt.imshow(img_final, "gray");plt.title("FINAL")
 
 plt.show()  # 顯示圖形
 
