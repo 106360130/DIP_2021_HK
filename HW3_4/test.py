@@ -1,3 +1,10 @@
+"""
+Reference:
+np 常用數學運算
+https://learnku.com/articles/35686
+"""
+
+
 import numpy as np
 
 matrix = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
