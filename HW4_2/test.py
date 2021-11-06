@@ -1,9 +1,93 @@
+import math
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+test_1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+test_2 = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
+print("test_1 : {}".format(test_1))
+print("test_2 : {}".format(test_2))
+test_1 = test_1*test_2
+print("test_1 : {}".format(test_1))
+print("test_2 : {}".format(test_2))
+test_1[:,1] = 1
+print("test_1 : {}".format(test_1))
+
+test_3 = np.zeros((1,10))
+print("test_3 : {}".format(test_3))
+test_3[:,2:5] = 1
+print("test_3 : {}".format(test_3))
+"""
+m = 20; n = 30  #要濾掉的區域的中心點
+P = 50; Q = 50  #整個fiter的size
+
+
+D0 = 10  #亮暗範圍
+N = 2  #平滑程度
+
+Bw_lowpass = np.zeros((P, Q))
+a = math.pow(D0, (2 * N)) 
+
+for u in range(P) :
+    for v in range(Q) :
+        temp = math.pow((u-(m+1.0)), 2) + math.pow((v-(n+1.0)), 2)
+        Bw_lowpass[u][v] = 1 / (1 + math.pow(temp, N) / a)
+
+
+plt.figure()
+plt.imshow(Bw_lowpass, "gray")
+plt.title("Butterworth Lowpass")
+plt.show()
+
+Bw_highpass = 1 - Bw_lowpass
+
+
+plt.figure()
+plt.imshow(Bw_highpass, "gray")
+plt.title("Butterworth Highpass")
+plt.show()
+"""
+
+
+"""
 from __future__ import division             # forces floating point division 
 import numpy as np                          # Numerical Python 
 import matplotlib.pyplot as plt             # Python plotting
 from PIL import Image                       # Python Imaging Library
 from numpy.fft import fft2, fftshift, ifft2 # Python DFT
+def butterLow(cutoff, critical, order):
+    normal_cutoff = float(cutoff) / critical
+    b, a = signal.butter(order, normal_cutoff, btype='lowpass')
+    return b, a
 
+def butterFilter(data, cutoff_freq, nyq_freq, order):
+    b, a = butterLow(cutoff_freq, nyq_freq, order)
+    y = signal.filtfilt(b, a, data)
+    return y
+
+#測試圖片 : "car-moire-pattern.tif"、"astronaut-interference.tif"
+img = plt.imread("car-moire-pattern.tif")
+print("img.shape : {}".format(img.shape))
+plt.figure()
+plt.imshow(img, cmap = "gray")
+plt.title("Origin")
+
+
+
+#FFT
+img_ft = np.fft.fft2(img)
+plt.figure()
+plt.imshow(np.log(np.abs(img_ft)), cmap = "gray")
+plt.title("FFT")
+
+x=np.array(img_ft)
+cutoff_frequency = some value
+sample_rate = maximum value in your array *2 +1
+
+y = butterFilter(x, cutoff_frequency, sample_rate/2)
+"""
+
+"""
 # # Show plots in the notebook (don't use it in Python scripts)
 # %matplotlib inline .
 
@@ -90,6 +174,7 @@ P3 = np.abs(F3)
 plt.figure()
 plt.imshow(P3)
 plt.show()
+"""
 
 """
 r = 10
