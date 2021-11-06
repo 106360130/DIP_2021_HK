@@ -68,7 +68,7 @@ img_2_ft = np.fft.fftshift(img_2_ft)
 #FFT
 
 plt.figure()
-plt.imshow(np.abs(img_2_ft), cmap = "gray")
+plt.imshow(np.log(np.abs(img_2_ft)), cmap = "gray")
 plt.title("FFT(shifted)")
 
 
@@ -103,9 +103,9 @@ for i in range(2):
     Bw_lowpass_2 = Bw_lowpass_2 + temp_Bw_lowpass_2
 
 filter_Bw_2 = 1 - Bw_lowpass_2
-plt.figure()
-plt.imshow(filter_Bw_2, cmap = "gray")
-plt.title("filter_Bw_2")
+# plt.figure()
+# plt.imshow(filter_Bw_2, cmap = "gray")
+# plt.title("filter_Bw_2")
 #Butterworth
 
 # P = img_2.shape[0]
