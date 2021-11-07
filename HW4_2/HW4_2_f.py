@@ -103,6 +103,9 @@ for i in range(2):
     Bw_lowpass_2 = Bw_lowpass_2 + temp_Bw_lowpass_2
 
 filter_Bw_2 = 1 - Bw_lowpass_2
+
+
+
 # plt.figure()
 # plt.imshow(filter_Bw_2, cmap = "gray")
 # plt.title("filter_Bw_2")
@@ -121,10 +124,12 @@ filter_Bw_2 = 1 - Bw_lowpass_2
 
 
 img_2_ft = img_2_ft*filter_Bw_2
+
 #雜訊所在處
 # img_2_ft[387][475] = 0
 # img_2_ft[437][525] = 0
 #雜訊所在處
+
 plt.figure()
 plt.imshow(np.log(np.abs(img_2_ft)), cmap = "gray")
 plt.title("FFT(shifted) after filter")

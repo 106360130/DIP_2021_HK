@@ -1,8 +1,27 @@
+"""
+fft
+https://www.delftstack.com/zh-tw/howto/python/fft-example-in-python/
+"""
+
 import math
 import matplotlib.pyplot as plt
 import numpy as np
 
+f_x = np.array([4, 2, 1, 5])
+F_u = np.fft.fft(f_x)
+print("F_u : {}".format(F_u))
 
+f_x = np.array([4, 2, 1, 5, 4, 2, 1, 5])
+F_u = np.fft.fft(f_x)
+print("F_u : {}".format(F_u))
+
+f_x = np.array([4, -2, 1, -5, 4, -2, 1, -5])
+F_u = np.fft.fft(f_x)
+print("F_u : {}".format(F_u))
+
+
+
+"""
 test_1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
 test_2 = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])
 print("test_1 : {}".format(test_1))
@@ -17,6 +36,9 @@ test_3 = np.zeros((1,10))
 print("test_3 : {}".format(test_3))
 test_3[:,2:5] = 1
 print("test_3 : {}".format(test_3))
+"""
+
+
 """
 m = 20; n = 30  #要濾掉的區域的中心點
 P = 50; Q = 50  #整個fiter的size
