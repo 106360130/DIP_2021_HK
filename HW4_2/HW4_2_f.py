@@ -1,3 +1,14 @@
+"""
+Reference:
+2D FFT and IFFT
+https://www.itread01.com/content/1546988055.html
+https://blog.csdn.net/Ibelievesunshine/article/details/104984775
+https://github.com/Aeium/2dFFT/blob/master/2dFFT.py
+
+
+
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pylab
