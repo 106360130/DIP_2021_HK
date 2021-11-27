@@ -36,7 +36,7 @@ def Butterworth_Lowpass(P, Q, D0, N, m, n):
     return Bw_lowpass
 
 #最大值不能大於255 且 最小值不能小於0
-def normalize_255(img) :
+def range_limited_255(img) :
     for i in range(img.shape[0]):
         for j in range(img.shape[1]):
             if(img[i][j] > 255):
@@ -47,3 +47,12 @@ def normalize_255(img) :
 
     return img      
 #最大值不能大於255 且 最小值不能小於0
+
+#將數值normalize至0到255的範圍
+def normalize_255(img) :
+    img = img - np.min(img)
+    img = (img / np.max(img))*255
+
+    return img  
+
+#將數值normalize至0到255的範圍

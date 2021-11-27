@@ -1,9 +1,15 @@
+"""
+Reference :
+Inverse filter
+https://github.com/pratscy3/Inverse-Filtering/blob/master/full_inverse.py
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math
 from HW5_1_function import show_img
 from HW5_1_function import Butterworth_Lowpass
-from HW5_1_function import normalize_255
+from HW5_1_function import range_limited_255
 #讀取圖片
 img = plt.imread("Fig5.25.jpg")
 print("img.shape : {}".format(img.shape))
@@ -13,11 +19,6 @@ show_img(np.abs(img), "Origin", "gray")
 
 img_new = np.zeros(img.shape)
 
-#將brg取出
-b = img[:, :, 0]
-g = img[:, :, 1]
-r = img[:, :, 2]
-#將brg取出
 
 #預估函數
 H = np.zeros((img.shape[0], img.shape[1]))
@@ -89,7 +90,7 @@ for i in range(img.shape[2]):
     F_hat = np.fft.fftshift(F_hat)  #將其移回正確的位置
     f_hat = np.fft.ifft2(F_hat)
 
-    f_hat = normalize_255(np.abs(f_hat))
+    f_hat = range_limited_255(np.abs(f_hat))
     img_new[:,:,i] = np.abs(f_hat)
     # plt.figure()
     # plt.imshow(np.abs(f_hat), cmap = "gray")
