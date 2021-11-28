@@ -35,7 +35,11 @@ j = complex(0, 1)
 # print("j : {}".format(j))
 for u in range(img.shape[0]) :   
     for v in range(img.shape[1]) :
+<<<<<<< HEAD
         temp_uv = ((u - (img.shape[0]/2))*a + (u - (img.shape[1]/2))*b)
+=======
+        temp_uv = ((u - (img.shape[0]/2))*a + (v - ((img.shape[1]/2))) *b)
+>>>>>>> c0b092b6d8cb1613d639d4440ece579ee86a1c8a
         pi = math.pi
 
         if(temp_uv == 0):
