@@ -79,7 +79,7 @@ for i in range(img.shape[2]):
     # print("max(g_ft) : {}".format(np.max(np.log(np.abs(g_ft)))))
     #做FT
 
-    K = 1
+    K = 0.025
     F_hat = wiener_filtering(g_ft, H, K)
     # plt.figure()
     # plt.imshow(np.log(np.abs(F_hat)), cmap = "gray")

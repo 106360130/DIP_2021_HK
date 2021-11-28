@@ -35,11 +35,11 @@ j = complex(0, 1)
 # print("j : {}".format(j))
 for u in range(img.shape[0]) :   
     for v in range(img.shape[1]) :
-        temp_uv = (u*a + v*b)
+        temp_uv = ((u - (img.shape[0]/2))*a + (v - ((img.shape[1]/2))) *b)
         pi = math.pi
 
-        if(u == 0 and v == 0):
-            H[u][v] = 0.0001
+        if(temp_uv == 0):
+            H[u][v] = 1
 
         else :
             temp_T = T / (pi * temp_uv)
