@@ -73,11 +73,11 @@ def wiener_filtering(img_ft, H, K):
     #K = 10  #常數
 
 
-    # temp_H = 1 / H
-    # temp_H2 = (np.abs(H) ** 2) / (np.abs(H) ** 2 + K)
-    # F_hat = temp_H * temp_H2 * g_ft
-    temp = np.conj(H) / (np.abs(H) ** 2 + K)
-    F_hat = temp * img_ft
+    temp_H = 1 / H
+    temp_H2 = (np.abs(H) ** 2) / (np.abs(H) ** 2 + K)
+    F_hat = temp_H * temp_H2 * img_ft
+    # temp = np.conj(H) / (np.abs(H) ** 2 + K)
+    # F_hat = temp * img_ft
 
     return F_hat  
 #Wiener filtering
