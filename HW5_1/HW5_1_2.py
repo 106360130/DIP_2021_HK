@@ -9,6 +9,11 @@ https://stackoverflow.com/questions/8498310/can-i-calculate-exp12j-in-python/849
 https://stackoverflow.com/questions/22016847/assigning-complex-values-to-numpy-arrays
 """
 
+"""
+book-cover-blurred.tif
+用Inverse filtering去還原
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math

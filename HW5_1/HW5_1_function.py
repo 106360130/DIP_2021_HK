@@ -56,3 +56,28 @@ def normalize_255(img) :
     return img  
 
 #將數值normalize至0到255的範圍
+
+
+#Inverse filtering
+def inverse_filtering(img_ft, H):
+    F_hat = g_ft / H
+
+    return F_hat  
+#Inverse filtering
+
+
+#Wiener filtering
+def wiener_filtering(img_ft, H, K):
+    #img_ft  #img經FT轉換
+    #H  #評估函數
+    #K = 10  #常數
+
+
+    # temp_H = 1 / H
+    # temp_H2 = (np.abs(H) ** 2) / (np.abs(H) ** 2 + K)
+    # F_hat = temp_H * temp_H2 * g_ft
+    temp = np.conj(H) / (np.abs(H) ** 2 + K)
+    F_hat = temp * img_ft
+
+    return F_hat  
+#Wiener filtering

@@ -15,6 +15,8 @@ import math
 from HW5_1_function import show_img
 from HW5_1_function import Butterworth_Lowpass
 from HW5_1_function import range_limited_255
+from HW5_1_function import wiener_filtering
+
 #讀取圖片
 img = plt.imread("Fig5.25.jpg")
 print("img.shape : {}".format(img.shape))
@@ -76,15 +78,15 @@ for i in range(img.shape[2]):
     # print("max(g_ft) : {}".format(np.max(np.log(np.abs(g_ft)))))
     #做FT
 
-
-    F_hat = g_ft / H
+    K = 10
+    F_hat = wiener_filtering(g_ft, H, K)
     # plt.figure()
     # plt.imshow(np.log(np.abs(F_hat)), cmap = "gray")
     # plt.title("F_hat(after H)")
 
 
     #butternworth
-    F_hat = F_hat * Bw_lowpass
+    #F_hat = F_hat * Bw_lowpass
 
     # plt.figure()
     # plt.imshow(np.log(np.abs(F_hat)), cmap = "gray")
@@ -105,4 +107,8 @@ for i in range(img.shape[2]):
     # show_img(np.abs(f_hat), "F_hat(show_img)", "gray")
 img_new = img_new.astype('uint8')
 show_img(np.abs(img_new), "F_hat(show_img)", "gray")
+
+plt.figure()
+plt.imshow(np.abs(img_new), cmap = "gray")
+plt.title("img_new")
 plt.show()
