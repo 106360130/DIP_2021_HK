@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pylab
 import math
+
 from HW6_function import show_img
 from HW6_function import filter_Sobel
 from HW6_function import normalize_255
