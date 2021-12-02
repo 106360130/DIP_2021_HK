@@ -54,13 +54,12 @@ def normalize_255(img) :
     img = (img / np.max(img))*255
 
     return img  
-
 #將數值normalize至0到255的範圍
 
 
 #Inverse filtering
 def inverse_filtering(img_ft, H):
-    F_hat = g_ft / H
+    F_hat = img_ft / H
 
     return F_hat  
 #Inverse filtering
