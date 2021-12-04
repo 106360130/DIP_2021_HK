@@ -8,8 +8,10 @@ from HW6_function import show_img
 from HW6_function import color_edge_detection_1
 from HW6_function import color_edge_detection_2
 
-frames=imageio.mimread('Visual resolution.gif') #frames是一個列表，存儲gif裏面的每一幀，長度就是幀個數
-# print(len(frames)) #imageio的圖片類型爲imageio.core.util.Array
+#frames是一個列表，存儲gif裏面的每一幀，長度就是幀個數
+frames=imageio.mimread('Visual resolution.gif') 
+#imageio的圖片類型爲imageio.core.util.Array
+# print(len(frames)) 
 
 for f in frames: #把每一幀轉爲numpy
 	img = np.array(f)

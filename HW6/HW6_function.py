@@ -74,23 +74,23 @@ def filter_Sobel(img):
     return img_M_xy_r
 #Sobel kernel所找到的邊緣
 
-#Sobel kernel所找到的邊緣
+#Sobel kernel所找到的邊緣(x軸方向)
 def filter_Sobel_x(img):
     kernel_S_x = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])  #g_x
     img_S_x = convolve2D(img, kernel_S_x, padding=0, strides=1)
     img_S_x = cv2.resize(img_S_x, (img.shape[1], img.shape[0]))
 
     return img_S_x
-#Sobel kernel所找到的邊緣
+#Sobel kernel所找到的邊緣(x軸方向)
 
-#Sobel kernel所找到的邊緣
+#Sobel kernel所找到的邊緣(y軸方向)
 def filter_Sobel_y(img):
     kernel_S_y = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])  #g_y
     img_S_y = convolve2D(img, kernel_S_y, padding=0, strides=1)
     img_S_y = cv2.resize(img_S_y, (img.shape[1], img.shape[0]))
 
     return img_S_y
-#Sobel kernel所找到的邊緣
+#Sobel kernel所找到的邊緣(y軸方向)
 
 #將數值normalize至0到255的範圍
 def normalize_255(img) :
@@ -119,6 +119,7 @@ def color_edge_detection_1(img):
         temp_img_g = np.zeros((img.shape[0], img.shape[1]))
         temp_img = img[:, :, i]
         temp_img_g = filter_Sobel(temp_img)  #計算影像的梯度
+        # show_img(normalize_255(temp_img_g), None, "gray")
         # temp_img_g = normalize_255(temp_img_g)
         # show_img(temp_img_g, None, "gray")
         # print("max(temp_img_g) : {}".format(np.max(temp_img_g)))
@@ -155,6 +156,9 @@ def color_edge_detection_2(img):
     img_b = img[:, :, 2]
     img_b_gx = filter_Sobel_x(img_b)
     img_b_gy = filter_Sobel_y(img_b)
+
+    # show_img(img_r_gx, None, "gray")
+    # show_img(img_r_gy, None, "gray")
     #計算影像的梯度
 
     #rgb的gradient不同的相加方式
