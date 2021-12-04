@@ -1,3 +1,4 @@
-for i in range(img.size[0]):
-#     for j in range(img.size[1]):
-#         print(img[][]])
+
+from HW6_function import show_img
+from HW6_function import color_edge_detection_1
+from HW6_function import color_edge_detection_2
