@@ -1,3 +1,13 @@
+"""
+Reference :
+Butterworth filter
+https://www.twblogs.net/a/5b8d063d2b71771883397347
+
+Wiener_filter
+https://www.researchgate.net/figure/Wiener-Filter-implementation-using-Python_fig3_332574579
+
+"""
+
 import matplotlib.pyplot as plt
 import numpy as np
 import math

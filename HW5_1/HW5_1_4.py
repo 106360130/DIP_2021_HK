@@ -7,7 +7,21 @@ https://stackoverflow.com/questions/8498310/can-i-calculate-exp12j-in-python/849
 
 在陣列中存複數
 https://stackoverflow.com/questions/22016847/assigning-complex-values-to-numpy-arrays
+
+exp()
+https://www.runoob.com/python/func-number-exp.html
+
+figure全螢幕顯示
+https://www.codenong.com/42354515/
+https://blog.csdn.net/weixin_39585934/article/details/93774445
+
+
+Python基本工具(Numpy、指數運算、Matplotlib)
+https://ithelp.ithome.com.tw/articles/10211345
+
 """
+
+
 
 
 """
@@ -106,6 +120,6 @@ img_new = np.fft.ifft2(F_hat)
 
 img_new_normalize = normalize_255(np.abs(img_new))
 show_img(img_new_normalize, "img_new : {}".format(a), "gray")
-# plt.get_current_fig_manager().full_screen_toggle()
+# plt.get_current_fig_manager().full_screen_toggle()  #"Figure窗口"全螢幕顯示
 
 plt.show()

@@ -1,3 +1,9 @@
+%{
+Referenece:
+https://www.itread01.com/content/1542714604.html
+
+%}
+
 img=imread('book-cover-blurred.tif');
 img=im2double(img);
 
