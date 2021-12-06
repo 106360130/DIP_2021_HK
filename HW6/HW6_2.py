@@ -1,3 +1,16 @@
+"""
+Reference:
+讀取GIF檔
+https://www.twblogs.net/a/5eeba0c67301656afdda902f
+https://blog.csdn.net/qq_29007291/article/details/82800348
+
+保存gif圖
+https://blog.csdn.net/FrankieHello/article/details/102600413
+https://juejin.cn/post/6844903561331998733
+https://itw01.com/825YE4B.html
+
+"""
+
 import numpy as np
 import cv2
 import imageio

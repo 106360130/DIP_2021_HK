@@ -1,4 +1,12 @@
-import numpy as np
+"""
+Reference :
+格式化輸出(print)
+https://www.runoob.com/python/att-string-format.html
+
+
+"""
+
+mport numpy as np
 import matplotlib.pyplot as plt
 import pylab
 import math

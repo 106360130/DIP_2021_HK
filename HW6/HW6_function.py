@@ -1,3 +1,29 @@
+"""
+Reference :
+矩陣元素同時做cos
+https://numpy.org/doc/stable/reference/generated/numpy.cos.html
+
+矩陣元素同時做atan2
+https://numpy.org/doc/stable/reference/generated/numpy.arctan2.html
+
+次方與指數
+https://googoodesign.gitbooks.io/-ezpython/content/unit-1.html
+
+複數運算、共軛複數
+https://python3-cookbook.readthedocs.io/zh_CN/latest/c03/p06_complex_math.html
+
+Numpy基本用法(矩陣宣告)
+http://violin-tao.blogspot.com/2017/05/numpy-1.html
+
+計算彩色圖的梯度
+https://stackoverflow.com/questions/56443938/gradient-for-color-image-in-python
+
+np.ravel()
+https://numpy.org/doc/stable/reference/generated/numpy.ravel.html
+
+
+"""
+
 import numpy as np
 import cv2
 import matplotlib.pyplot as plt
